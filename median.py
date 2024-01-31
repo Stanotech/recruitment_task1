@@ -31,10 +31,7 @@ def get_median_of_first_week_expenses(expenses):
             if days[day] and int(day) <= 7-first_day_number:        # jeśli dzień nie jest pusty- są wydatki to                    
                     day_expenses = [expense for category in days[day].values() for expense in category]
                     week_expenses.extend(day_expenses)
-                    print(week_expenses)
-
-    print(week_expenses)
-    print(sorted(week_expenses))                
+              
     result = median(week_expenses)
     return result
 
