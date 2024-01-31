@@ -14,26 +14,27 @@ def median(list):
     if n % 2 == 0:
         return (sorted_list[middle_index - 1] + sorted_list[middle_index]) / 2.0
     else:
-        return sorted_list[middle_index]    
+        return sorted_list[middle_index]
 
 
 def get_median_of_first_week_expenses(expenses):
     result = None
     week_expenses = []
 
-    for month, days in expenses.items():        # iteracja po elementach (data i dane dla danego dnia)
+    for month, days in expenses.items():
         month_first_day = datetime.strptime(month, "%Y-%m").replace(day=1)
         first_day_number = month_first_day.weekday()
-        sorted_days = sorted(days.keys())       # posortowane numery dni z dancyh 
-        
-        
-        for day in sorted_days:                 # iteracja przez posortowane dni
-            if days[day] and int(day) <= 7-first_day_number:        # jeśli dzień nie jest pusty- są wydatki to                    
-                    day_expenses = [expense for category in days[day].values() for expense in category]
-                    week_expenses.extend(day_expenses)
-              
+        sorted_days = sorted(days.keys())
+
+        for day in sorted_days:
+            if days[day] and int(day) <= 7-first_day_number:
+                day_expenses = [expense for category in days[day].values()
+                                for expense in category]
+                week_expenses.extend(day_expenses)
+
     result = median(week_expenses)
     return result
+
 
 # Przykładowe dane
 expenses = {
