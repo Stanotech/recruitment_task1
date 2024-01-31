@@ -18,7 +18,7 @@ def median(list):
 
 
 def get_median_of_first_week_expenses(expenses):
-    week_median = None
+    result = None
     week_expenses = []
 
     for month, days in expenses.items():        # iteracja po elementach (data i dane dla danego dnia)
@@ -35,8 +35,8 @@ def get_median_of_first_week_expenses(expenses):
 
     print(week_expenses)
     print(sorted(week_expenses))                
-    week_median = median(week_expenses)
-    return week_median if week_median else None
+    result = median(week_expenses)
+    return result
 
 # Przykładowe dane
 expenses = {
@@ -62,5 +62,4 @@ expenses = {
     "2023-04": {}
 }
 
-# Wywołanie funkcji i wydruk wyniku
 print(get_median_of_first_week_expenses(expenses))
